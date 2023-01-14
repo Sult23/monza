@@ -1,0 +1,32 @@
+{% load static %}
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{%static 'project/css/style.css' %}">
+</head>
+<title>{{title}}</title>
+
+<body>
+	<div class="wrapper">
+		<div class="login__logo">
+			<img src="{% static 'project/img/logo 1.svg' %}" alt="logo" class="logo__img">
+		</div>
+		<div class="authbox">
+			<div class="authbox__inner">
+				<h1 class="authbox__title">Привет!</h1>
+				<form class="authbox__form" method="POST">
+					{% csrf_token %}
+					<input class="authbox__input" name="username" autocomplete="username" type="text" placeholder="Login">
+					<input class="authbox__input" type="password" name="password" placeholder="Password">
+					<button type="submit" class="authbox__btn btn">Войти</button>
+				</form>
+			</div>
+		</div>
+		<a href="{% url 'index' %}" class="login__link">Вернуться на сайт</a>
+	</div>
+</body>
+
+</html>
